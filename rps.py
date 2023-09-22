@@ -1,32 +1,41 @@
 import random
 
-options = ['rock', 'paper', 'scissors']
-print('(1) Rock\n(2) Paper\n(3) Scissors')
+OPTIONS = ['rock', 'paper', 'scissors']
 
-human_choice = options[int(input('Enter the number of your choice: ')) - 1]
-print(f'You chose {human_choice}')
+def decider(win, lose):
+    if win == 'paper' and lose != 'scissors':
+        return f'Yes, {win} beat {lose}'
+    elif win == 'scissors' and lose != 'rock':
+        return f'Yes, {win} beat {lose}'
+    elif win == 'rock' and lose != 'paper':
+        return f'Yes, {win} beat {lose}'
 
-computer_choice = random.choice(options)
-print(f'The computer chose {computer_choice}')
+def print_winner(human_choice, computer_choice):
+    if human_choice == computer_choice:
+        return "Draw"
+    
+    winner = decider(human_choice, computer_choice)
+    return (
+        winner if winner
+        else f'Sorry, {computer_choice} beat {human_choice}'
+    )
 
-if human_choice == 'rock':
-    if computer_choice == 'paper':
-        print('Sorry, paper beat rock')
-    elif computer_choice == 'scissors':
-        print('Yes, rock beat scissors!')
-    else:
-        print('Draw!')
-elif human_choice == 'paper':
-    if computer_choice == 'scissors':
-        print('Sorry, scissors beat paper')
-    elif computer_choice == 'rock':
-        print('Yes, paper beat rock!')
-    else:
-        print('Draw!')
-elif human_choice == 'scissors':
-    if computer_choice == 'rock':
-        print('Sorry, rock beat scissors')
-    elif computer_choice == 'paper':
-        print('Yes, scissors beat paper!')
-    else:
-        print('Draw!')
+def get_human():
+    return OPTIONS[int(input('Enter the number of your choice: ')) - 1]
+
+def get_computer():
+    return random.choice(OPTIONS)
+
+def main():
+    print('(1) Rock\n(2) Paper\n(3) Scissors')
+
+    human_choice = get_human()
+    print(f'You chose {human_choice}')
+
+    computer_choice = get_computer()
+    print(f'The computer chose {computer_choice}')
+
+    print(print_winner(human_choice, computer_choice))
+
+
+main()
