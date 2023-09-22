@@ -2,23 +2,24 @@ import random
 
 OPTIONS = ['rock', 'paper', 'scissors']
 
-def decider(win, lose):
-    if win == 'paper' and lose != 'scissors':
-        return f'Yes, {win} beat {lose}'
-    elif win == 'scissors' and lose != 'rock':
-        return f'Yes, {win} beat {lose}'
-    elif win == 'rock' and lose != 'paper':
-        return f'Yes, {win} beat {lose}'
+def decider(human_choice, computer_choice, lose, win):
+    if computer_choice == lose:
+        print(f'Sorry, {computer_choice} beat {human_choice}')
+    elif human_choice == win:
+        print(f'Yes, {human_choice} beat {computer_choice}')
 
 def print_winner(human_choice, computer_choice):
+    # Take care of the draw condition
     if human_choice == computer_choice:
-        return "Draw"
-    
-    winner = decider(human_choice, computer_choice)
-    return (
-        winner if winner
-        else f'Sorry, {computer_choice} beat {human_choice}'
-    )
+        print("Draw")
+
+    # Take care of win or lose
+    if human_choice == 'paper':
+        decider(human_choice, computer_choice, 'scissors', 'rock')
+    elif human_choice == 'rock':
+        decider(human_choice, computer_choice, 'paper', 'scissors')
+    elif human_choice == 'scissors':
+        decider(human_choice, computer_choice, 'rock', 'paper')
 
 def get_human():
     return OPTIONS[int(input('Enter the number of your choice: ')) - 1]
@@ -35,7 +36,7 @@ def main():
     computer_choice = get_computer()
     print(f'The computer chose {computer_choice}')
 
-    print(print_winner(human_choice, computer_choice))
+    print_winner(human_choice, computer_choice)
 
 
 main()
