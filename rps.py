@@ -2,41 +2,48 @@ import random
 
 OPTIONS = ['rock', 'paper', 'scissors']
 
-def decider(human_choice, computer_choice, lose, win):
-    if computer_choice == lose:
-        print(f'Sorry, {computer_choice} beat {human_choice}')
-    elif human_choice == win:
-        print(f'Yes, {human_choice} beat {computer_choice}')
+class RPS:
+    def __init__(self):
+        self.computer_choice = None
+        self.human_choice = None
 
-def print_winner(human_choice, computer_choice):
-    # Take care of the draw condition
-    if human_choice == computer_choice:
-        print("Draw")
+    def get_human(self):
+        number = int(input('Enter the number of your choice: '))
+        self.human_choice = OPTIONS[number - 1]
 
-    # Take care of win or lose
-    if human_choice == 'paper':
-        decider(human_choice, computer_choice, 'scissors', 'rock')
-    elif human_choice == 'rock':
-        decider(human_choice, computer_choice, 'paper', 'scissors')
-    elif human_choice == 'scissors':
-        decider(human_choice, computer_choice, 'rock', 'paper')
+    def get_computer(self):
+        self.computer_choice = random.choice(OPTIONS)
 
-def get_human():
-    return OPTIONS[int(input('Enter the number of your choice: ')) - 1]
+    def decider(self, lose, win):
+        if self.computer_choice == lose:
+            print(f'Sorry, {self.computer_choice} beat {self.human_choice}')
+        elif self.human_choice == win:
+            print(f'Yes, {self.human_choice} beat {self.computer_choice}')
 
-def get_computer():
-    return random.choice(OPTIONS)
+    def print_winner(self):
+        # Take care of the draw condition
+        if self.human_choice == self.computer_choice:
+            print("Draw")
 
-def main():
-    print('(1) Rock\n(2) Paper\n(3) Scissors')
+        # Take care of win or lose
+        if self.human_choice == 'paper':
+            self.decider('scissors', 'rock')
+        elif self.human_choice == 'rock':
+            self.decider('paper', 'scissors')
+        elif self.human_choice == 'scissors':
+            self.decider('rock', 'paper')
+        
+    def main(self):
+        print('(1) Rock\n(2) Paper\n(3) Scissors')
 
-    human_choice = get_human()
-    print(f'You chose {human_choice}')
+        self.get_human()
+        self.get_computer()
 
-    computer_choice = get_computer()
-    print(f'The computer chose {computer_choice}')
+        print(f'You chose {self.human_choice}')
+        print(f'The computer chose {self.computer_choice}')
 
-    print_winner(human_choice, computer_choice)
+        self.print_winner()
 
 
-main()
+rps = RPS()
+rps.main()
