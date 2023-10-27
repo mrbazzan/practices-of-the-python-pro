@@ -1,24 +1,26 @@
 
 from datetime import datetime
 
+NOW = datetime.now()
+
+def day():
+    return NOW.strftime("%A")
+
+def part_of_day():
+    if NOW.hour < 12:
+        return "morning"
+    elif NOW.hour < 17:
+        return "afternoon"
+    else:
+        return "evening"
+
 class Greeter:
     def __init__(self):
-        self.now = datetime.now()
-
-    def _day(self):
-        return self.now.strftime("%A")
-
-    def _part_of_day(self):
-        if self.now.hour < 12:
-            return "morning"
-        elif self.now.hour < 17:
-            return "afternoon"
-        else:
-            return "evening"
+        pass
 
     def greet(self, store):
         print(f"Hi, welcome to {store}")
-        print(f"How's your {self._day()} {self._part_of_day()} going?")
+        print(f"How's your {day()} {part_of_day()} going?")
         print("Here's a coupon for 20% off!")
 
 
