@@ -106,3 +106,123 @@ NOTE TO SELF:
 
 An *Adapter* in software is when an abstraction is created over an external
 software (e.g a third-party package) to make it easier to use.
+
+
+CHAPTER FOUR
+------------
+
+    DESIGNING FOR HIGH PERFORMANCE
+
+
+In large systems, if something feels instanteous, it might be fast enough.
+If your software requires storage on a disk or in a database, minimizing the
+amount of storage saves money (how? well, you wouldn't have to pay the
+external services: Amazon, Google etc. a huge sum because you are not
+saving a lot of data.
+
+[my note] Software that depend on databases have to worry about
+fetch-and-get time.
+
+Changes lower than 100ms to humans are instantenous.
+
+Time and Space complexity is not an exact measurement, rather it helps
+understand the worst case scenario for a software.
+[note] complexity measurement are used to contrast(evaluate) ways of
+achieving a particular task; they aren't so useful for unrelated tasks.
+e.g you can compare the complexity of differing algorithms for finding
+an element in a sorted list, not so much comparing the recursive solution
+of finding the nth fibonacci number to an iterative (or even recursive)
+solution of finding the factorial of a number.
+
+Time complexity
+---------------
+
+It measures how fast a code can perform a task in relation to its inputs.
+
+- Linearity O(n)
+[note] even though a particular activity may be steeply linear, other, more
+complex operations can still outpace it if the inputs are sufficiently many.
+Wow! there are cases in which O(n^2) might be slower than O(n).
+
+- Square Proportionality O(n^2)
+Think nested loops (a loop in another loop)
+
+- Constant Time O(1)
+Doesn't depend on the input! Nothing is better than constant time.
+[what do you mean Dan] the initial computation may itself be nonconstant,
+but if it allows subsequent steps to become constanct, great trade-off!.
+
+Space complexity
+----------------
+
+It measures the disk space or memory usage of a code as input grows.
+Python has the added advantage of automatic garbage collection.
+
+[hey baz] be careful about the way you deal with files, you don't always
+have to load everything in memory!
+
+Try to find opportunities to shift from a higher-order complexity to a
+lower-order one, this will almost always yield better performance.
+
+Performance and data types
+--------------------------
+
+Understanding Python's existing datatypes is important because new
+software written in Python will build on the existiing data types.
+
+Time
+----
+
+- For constant time
+adding, removing and accessing items from a ``set`` and ``dict``
+
+```python
+
+# by using a set to hod all the unique colors, checking for specific
+# color in the set takes only constant time.
+colors = set()
+with open('all-favorite-colors.txt') as favorite_colors_file:
+    for color in favorite_colors_file:
+        colors.add(color.strip())
+
+```
+
+- For linear time
+most operations on a ``list`` datatype.
+adding or removing from the end of a list takes O(1) time.
+
+``tuples`` too, but they can't be modified.
+
+Space
+-----
+
+A list of 10 elements takes roughly 10 times more space in memory than
+a list with single element. i.e space complexity == O(n)
+
+The trick is to use ``generators`` (they produce single value at a time
+pausing until the next value is requested). e.g ``range(start, stop, step)``.
+
+How do generators work in Python? Generators make use of the ``yield``
+keyword. ``yield`` yields a value, and then yields execution (execution goes
+back to the calling code)
+
+```python
+
+def range(args):
+    assert len(args) < 4
+
+    if len(args) == 1:
+        start = 0
+        stop = args[0]
+    else:
+        start = args[0]
+        stop = args[1]
+
+    current = start
+    step = args[2] if len(args) == 3 else 1
+
+    while current < stop:
+        yield current
+        current += step
+
+```
