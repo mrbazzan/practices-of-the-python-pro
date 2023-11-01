@@ -225,4 +225,39 @@ def range(args):
         yield current
         current += step
 
+def squares(item):
+    length = len(item)
+    count = 0
+    while count < length:
+        yield item[count] ** 2
+        count += 1
+
 ```
+
+[hey, baz] use generators instead of list whenever you can.
+
+Generators introduces this thing called **Lazy evaluation**, producing
+one value at a time since consuming code might not need all the values
+at once.
+
+Make it work, make it right, make it fast
+-----------------------------------------
+
+This should be the goal in each small iteration as code is written.
+
+Martin Fowler's rule of three for when refactoring should be done
+> by the time you implement the same thing three times, there is
+probably a need to provide an abstraction for that behaviour
+
+Understanding what tools a language has for different activities often
+helps to produce shorter/concise code (not always the best, we know).
+This is one of the points of "making code right".
+
+The performance of large system transcends code.
+
+Tools
+-----
+
+timeit module in Python
+CPU profiling (profiling means analyzing to gather metrics about
+behaviour)
