@@ -1,5 +1,7 @@
 
 > My musings from Dane Hillard's **PRACTICES OF THE PYTHON PRO**
+> Praxis Peritum Serpentium
+
 
 CHAPTER THREE
 -------------
