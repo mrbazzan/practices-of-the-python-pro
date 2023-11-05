@@ -46,13 +46,13 @@ Programming Styles
 Typing, Inheritance and Polymorphism
 ------------------------------------
 
-A language's type system is how it choose to manage data types of variable,
+A language's type system is how it chooses to manage data types of variable,
 Python is dynamically typed (data types are determined at runtime). Some
 other languages are statically typed (data types are determined at compile
 time).
 
-Python raises an **AttributeError** when a method is called, but it
-does not exist in an instance's class whereas some other languages fail
+Python raises an **AttributeError** when a method is called but it
+does not exist in an instance's class, whereas some other languages fail
 to even compile if this happens. This allows Python to be great for
 *Polymorphism*, a language feature that allows utilizing a method on
 objects of different types to provide varying behavious (or in the words
@@ -125,7 +125,8 @@ saving a lot of data.
 [my note] Software that depend on databases have to worry about
 fetch-and-get time.
 
-Changes lower than 100ms to humans are instantenous.
+Changes faster than 100ms to humans are instantenous.
+    faster than 100ms == less than 100ms (e.g 50ms, 99ms)?
 
 Time and Space complexity is not an exact measurement, rather it helps
 understand the worst case scenario for a software.
@@ -151,8 +152,8 @@ Think nested loops (a loop in another loop)
 
 - Constant Time O(1)
 Doesn't depend on the input! Nothing is better than constant time.
-[what do you mean Dan] the initial computation may itself be nonconstant,
-but if it allows subsequent steps to become constanct, great trade-off!.
+[what do you mean Dan] the initial computation may itself be non-constant,
+but if it allows subsequent steps to become constant, great trade-off!.
 
 Space complexity
 ----------------
@@ -180,7 +181,7 @@ adding, removing and accessing items from a ``set`` and ``dict``
 
 ```python
 
-# by using a set to hod all the unique colors, checking for specific
+# by using a set to hold all the unique colors, checking for specific
 # color in the set takes only constant time.
 colors = set()
 with open('all-favorite-colors.txt') as favorite_colors_file:
