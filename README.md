@@ -264,3 +264,60 @@ Tools
 timeit module in Python
 CPU profiling (profiling means analyzing to gather metrics about
 behaviour)
+
+
+CHAPTER FIVE
+------------
+
+    TESTING YOUR SOFTWARE
+
+
+Software testing can be loosely defined as the practice of verifying that
+software behaves as expected.
+
+Although it's easy to think that more time spent validating code affects
+shipping time, testing provides a stable base on which refactoring
+can be done (remember refactor? the guy that needs to be taken
+care of frequently).
+
+
+Anatomy of a functional test
+----------------------------
+
+Functional test ensures that a piece of code functions correctly. Some of
+its steps are listed below:
+i) prepare the inputs
+ii) identify the expected outputs
+iii) obtain the acutal output
+iv) compare the actual output to the expected output
+
+This allows test to be read as a specification of how code works.
+
+
+Forms of functional testing
+---------------------------
+Manual testing
+Automated testing
+Acceptance testing - "Can I successfully add a book to my library?"
+Unit testing
+   In Python, functions can be isolated (given certain inputs, and expect
+   certain outputs) so they are considered a unit. Classes contain many
+   pieces that can be isolated further, so they are generally bigger than
+   a unit, but they can be occasionally treated as one.
+Integration testing
+   It checks the result of interactions between various unit tests. Think,
+   create a database, populate with some fields, perform various CRUD
+   operations on it.
+
+   End-to-end tests may be framed from the perspective of the user,
+   integration tests focus more on the behaviour of code.
+Regression testing
+   A regression is a shift to an undesirable (or unexpected) state.
+   This is the practice of running your existing suite of tests after
+   each code change before shipping to production
+
+
+Assertions
+----------
+
+Assertions are statements of fact
