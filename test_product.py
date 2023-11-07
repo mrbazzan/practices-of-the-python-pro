@@ -27,3 +27,12 @@ class ShoppingCartTestCase(unittest.TestCase):
 
         shoe_cart.remove_product(xl_black_shoes)
         self.assertEqual(shoe_cart.products, {})
+
+    def test_remove_too_many_products(self):
+        cart = ShoppingCart()
+        product = Product("shoes", 'S', "blue")
+
+        cart.add_product(product)
+        cart.remove_product(product, quantity=2)
+
+        self.assertDictEqual({}, cart.products)
