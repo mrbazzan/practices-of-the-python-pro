@@ -321,3 +321,42 @@ Assertions
 ----------
 
 Assertions are statements of fact
+
+
+Unit testing with unittest
+--------------------------
+
+unittest is Python's built-in testing framework.
+
+Test doubles
+------------
+
+In order to write test for codes that interact with other systems, there
+might be a need to imitate API calls that have destructive effect on real data.
+This can be done in any of the following ways:
+- Faking
+- Stubbing
+- Mocking
+
+Unit testing with pytest
+------------------------
+
+pytest is another testing framework in Python
+
+
+Beyond functional testing
+-------------------------
+
+Functional testing precedes testing the speed of your code?
+
+Performance testing
+Load testing
+
+
+Test-driven development (TDD)
+-----------------------------
+
+A mindset and a philosophy.
+> if awkwardness must be incorporated in a code, it is better for it to
+> be in tests than the real code. Never sabotage code only to make testing
+> easier (or coverage stronger).
