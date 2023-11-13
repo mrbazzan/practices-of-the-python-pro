@@ -360,3 +360,21 @@ A mindset and a philosophy.
 > if awkwardness must be incorporated in a code, it is better for it to
 > be in tests than the real code. Never sabotage code only to make testing
 > easier (or coverage stronger).
+
+
+Chapter >5
+----------
+
+    PROJECT: bookmark
+
+A multi-tier architecture is frequently used in web and desktop
+applications (we use it in this project too).
+
+- Presentation layer: interface for user to interact with software
+- Logic layer: connector of the presentation and persistence layer
+- Persistence layer: where data is stored for later use
+
+Similar to this is the Model-View-Controller (MVC) pattern — think Django.
+
+> sqlite tips: Using a cusor to execute a statement allows iterating
+>              over the result it returns.
