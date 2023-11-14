@@ -376,5 +376,16 @@ applications (we use it in this project too).
 
 Similar to this is the Model-View-Controller (MVC) pattern — think Django.
 
-> sqlite tips: Using a cusor to execute a statement allows iterating
->              over the result it returns.
+Persistence layer
+-----------------
+
+Create a ``DatabaseManager`` class to handle direct interaction with the
+database through SQL code. A third-party ORM could also be used.
+
+Database tips
+-------------
+
+Using cusors to execute statements, this allows iterating
+over the result it returns.
+
+Use clauses to limit scope. e.g ``WHERE``
