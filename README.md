@@ -389,3 +389,31 @@ Using cusors to execute statements, this allows iterating
 over the result it returns.
 
 Use clauses to limit scope. e.g ``WHERE``
+
+Logic layer
+-----------
+
+Although it is tempting to litter the whole codebase with ``if`` blocks
+that couples the text presented to the user with actions to be triggered.
+Like so,
+
+```python
+
+if user_action == 'add':
+    # add bookmark
+elif user_action == 'delete':
+    # delete bookmark
+
+```
+
+The problem lies in that:
+- every new action has to get an ``elif`` statement (what if we have
+20 actions?)
+- what if a user action wants to trigger two actions
+simultaneously (e.g add and delete)?
+
+Rather, the logic of each action should be encapsulated as a command object
+such that the presentation layer only points to command not caring how it
+works. DECOUPLING.
+
+The pattern described above is called a ``COMMAND PATTERN``.
