@@ -67,10 +67,15 @@ Today (when did he write the book?), the preference has shifted to
 
 Inheritance forces hierarchy. Composition frees one from the limitations
 of hierarchy while providing the relation.
-> An example that helps think about this, is the classification of
-> Kangaroo, Human, Cat and Dog to (Biped, Mammal, Quadruped, Canine) where
-> each of them can belong to more than one group i.e Dog can belong to the
-> group of Canine, Quadruped, and anyone else that is true.
+> An example that helps think about the limitation of hierarchy is in the
+> classification of Kangaroo, Human, Cat and Dog to
+> (Biped, Mammal, Quadruped, Canine) where each of them can belong to
+> more than one group i.e Dog can belong to the group of Canine,
+> Quadruped, and anyone else that is true.
+
+An issue occurs when a clear hierarchy is to be implemented between Mammal and
+Quadruped. Not all Quadruped are Mammal, and not all Mammal are Quadruped.
+How then is the hierarchy defined? Hence, composition.
 
 Composition is achieved through a language feature called *Interface*.
 Interfaces are formal definition of methods and data that a class must
@@ -91,7 +96,7 @@ class SpeakMixin:
         ...
 
 class RollMixin:
-    def speak(self):
+    def roll(self):
         ...
 
 # e.g for Dog
