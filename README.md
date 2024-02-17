@@ -422,3 +422,13 @@ such that the presentation layer only points to command not caring how it
 works. DECOUPLING.
 
 The pattern described above is called a ``COMMAND PATTERN``.
+
+Presentation layer
+------------------
+
+**bookmark** is a CLI application.
+
+An ``Option`` class is created to provide user-facing functionalities.
+Every option presented to the user is an instance of this class.
+It is responsible for presenting an option to the user, handling
+the corresponding input and triggering the associated Command class.
