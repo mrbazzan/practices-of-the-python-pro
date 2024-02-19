@@ -432,3 +432,25 @@ An ``Option`` class is created to provide user-facing functionalities.
 Every option presented to the user is an instance of this class.
 It is responsible for presenting an option to the user, handling
 the corresponding input and triggering the associated Command class.
+
+
+CHAPTER SEVEN
+-------------
+
+    EXTENSIBILITY AND FLEXIBILITY
+
+
+What is extensible code? A code is said to be extensible when you
+can add new features without editing/changing existing code.
+Basically, implement new features to an existing codebase without
+the need to revamp the whole project.
+It only requires adding new code that encapsulate the new feature.
+
+Chrome, Firefox and other browsers were not built specifically for
+a particular add-on/extension, rather, they were designed to allow
+for generic extensions to be built later.
+
+A way to identify inextensible code is when you have to
+perform ``shotgun surgery`` to get in new featrures.
+In programming words, this means editing and modifying little
+nuggets in the existing code.
