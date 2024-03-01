@@ -454,3 +454,13 @@ A way to identify inextensible code is when you have to
 perform ``shotgun surgery`` to get in new featrures.
 In programming words, this means editing and modifying little
 nuggets in the existing code.
+
+Duplicating a copy of code, and updating it to suite the intended new
+feature is also a form of extension. This provides the advantage
+of finding out how to make the original code more extensible.
+
+"Duplication is better than wrong abstraction"
+
+Since real world systems are not ideal, it is quite possible that
+editing existing code might occur when introducing a new feature.
+This is where system flexibility applies.
