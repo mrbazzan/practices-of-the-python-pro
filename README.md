@@ -464,3 +464,54 @@ of finding out how to make the original code more extensible.
 Since real world systems are not ideal, it is quite possible that
 editing existing code might occur when introducing a new feature.
 This is where system flexibility applies.
+
+There are couple of reasons why an existing code might require
+modification; some of which are:
+- to fix a bug
+- refactoring to make it easy to work with
+etc.
+
+Since flexibility measures code's resistance to change, an ideal
+flexible code would allow changes to occur without much hassle.
+
+7.1: Example of a poorly flexible code
+--------------------------------------
+
+This code contains a rigid mapping of user choice to outcome
+
+```python
+if choice == "A":
+    print("A is for apples")
+elif choice == "B":
+    print("B is for bags")
+
+```
+
+7.2: Example of a flexible code
+-------------------------------
+
+This is a flexible mapping of choices to outcome such that adding
+new choices is achieved by adding the choice and outcome as key-value
+pair in the dictionary. This mapping acts like a
+configuration — information a program uses to determine how to execute.
+
+Configuration is often easier to understand than conditional logic.
+
+```python
+
+choices = {"A": "apples", "B": "bags"}
+print(f"{choice} is for {choices[choice]}")
+
+```
+
+**7.2** is an example of a loosely-coupled system. It is flexible,
+and makes extension easily achieved.
+
+
+Rigidity in code and possible solutions
+---------------------------------------
+
+Rigidity in code make it hard to introduce changes. A rigid code
+is one in which the flexibility is quite low. The developer should
+always look out for ways to make rigid code become flexible
+by refactoring.
