@@ -515,3 +515,20 @@ Rigidity in code make it hard to introduce changes. A rigid code
 is one in which the flexibility is quite low. The developer should
 always look out for ways to make rigid code become flexible
 by refactoring.
+
+Some of the ways to reduce rigidity are:
+
+Inversion of control
+--------------------
+
+One of the basic rules of OOP is that a system is defined as a couple
+of small classes where each class is focused on a concern. The system
+is then defined by writing a class that uses instances of those smaller
+classes.
+
+Inversion of control is concerned with how these small classes are used
+by the larger class. The creation of instances of the smaller classes
+does not happen when the larger class is being instantiated rather the
+control of creation is placed on the code creating the system.
+
+For code example, check *inverison_of_control.py*
