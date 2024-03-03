@@ -548,3 +548,26 @@ as long as the attributes and behaviours (methods) are consistent.
 
     This is why CarbonFiberFrame class could be used in-place of
     Frame class.
+
+The robustness principle
+------------------------
+
+Entropy is the tendency for organization to dissolve into
+disorganization over time.
+
+Code often starts out small and understandable but it tends toward
+complexity over time becauase it has to accommodate different kinds
+of input.
+
+To reduce rigidity, the robustness principle embodies the spirit of
+providing only the behaviour required to achieve the desired
+outcome while being open to array of inputs i.e the developer
+has to think deeply about the kind of inputs the software
+would accept over time.
+
+An example in Python is the **int()** function which takes integers,
+strings, bytes and floats as input. It acts as a funnel, chanelling
+these various inputs into a single output type.
+
+"Be conservative in what you do, be liberal in what you accept from
+others"
