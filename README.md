@@ -532,3 +532,19 @@ does not happen when the larger class is being instantiated rather the
 control of creation is placed on the code creating the system.
 
 For code example, check *inverison_of_control.py*
+
+Relying on Interfaces
+---------------------
+
+Whenever large classes are too focused on the details
+of smaller classes dependencies, rigidity manifests.
+
+    Bicycle class doesn't really care about a specific tire
+    or frame. It only cares that tire has certain attributes
+    and methods.
+
+Shared-upon interfaces allow for substitution of implementations
+as long as the attributes and behaviours (methods) are consistent.
+
+    This is why CarbonFiberFrame class could be used in-place of
+    Frame class.
