@@ -571,3 +571,35 @@ these various inputs into a single output type.
 
 "Be conservative in what you do, be liberal in what you accept from
 others"
+
+
+CHAPTER EIGHT
+-------------
+
+    THE RULES (AND EXCEPTIONS) OF INHERITANCE
+
+
+Classes can inherit from other classes, ending up with the
+inherited classes' data and behaviour.
+
+Inheritance of programming past
+-------------------------------
+
+Many applications sought to model real world systems as hierarchy of
+objects, in the hopes of achieving a neat
+structure (this is done with inheritance). Inheritance was so
+entwined into object-oriented programming that the concepts
+were nearly inseperable.
+
+The problem lies in the use of inheritance as a
+"silver bullet" (magical solution to a complicated problem).
+The excessive use of the paradigm in OOP lead to a lot of people
+getting frustrated and renouncing OOP altogther (this does not mean
+that OOP and Inheritance donot have the capability for modelling
+the right hierarchies).
+
+What are some of the frustrations of class inheritance?
+-------------------------------------------------------
+
+- As software grows, it becomes harder to keep parent-child relationship
+between classes straight.
