@@ -603,3 +603,54 @@ What are some of the frustrations of class inheritance?
 
 - As software grows, it becomes harder to keep parent-child relationship
 between classes straight.
+
+    Inheritance introduces probably the tightest coupling in programming.
+    A class inherits all the superclass's data and methods, and
+    can then override them. When class hierarchies grow, it becomes
+    quite difficult to see this coupling because looking at a
+    particular class, it isn't obvious whether another class is
+    inheriting from it or not.
+
+    e.g Shape < Polygon < Quadrilateral < Rectangle < Square
+
+    A change in `Shape` class could affect `Square` which is
+    four levels away (like a propagating constraint?). This could
+    pose a big danger in software.
+
+
+"As developers, we should increase our understanding and reduce
+cognitive load"
+
+What is inheritance for?
+------------------------
+
+Inheritance is for **specialization of behaviour**, don't use it
+only to reuse code.
+
+    Create a subclass to make a method return a different value or
+    perform different operation under the hood.
+
+Substitutability
+----------------
+
+Liskov substitution principle states that ...
+
+    in any program, any instance of a class must be replaceable by
+    an instance of one of its subclasses without affecting the
+    correctness of the program.
+
+The ideal use case for inheritance
+----------------------------------
+
+- problem with shallow, narrow hierarchy: keep the hierarchy and
+the number of subclass small.
+
+    Iterable < (List, String, Dict, Set)
+
+- subclasses are at the leaves of the object graph: a class may point
+to other objects, but its subclasses generally shouldn't have any
+further dependencies.
+
+- subclasses use all the behaviour of their superclass: if a subclass
+doesn't use all of its superclass's behaviour, is it really an
+instance of the superclass?
