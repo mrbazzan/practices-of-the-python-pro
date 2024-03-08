@@ -528,8 +528,11 @@ classes.
 
 Inversion of control is concerned with how these small classes are used
 by the larger class. The creation of instances of the smaller classes
-does not happen when the larger class is being instantiated rather the
+should not happen when the larger class is being instantiated rather the
 control of creation is placed on the code creating the system.
+
+    ... instead of creating instances of dependencies in your class,
+    you can pass in existing instances for the class to use.
 
 For code example, check *inverison_of_control.py*
 
