@@ -660,3 +660,13 @@ instance of the superclass?
 
     what does it mean to compose a behaviour into a class that needs
     it?
+
+
+Inheritance in Python
+---------------------
+
+Python provides the following tools to check the "situation" of an object.
+- `type()`
+- `isinstance()`
+- `issubclass()`
+- `super()`: check **teller.py()**
