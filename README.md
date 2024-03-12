@@ -657,3 +657,6 @@ further dependencies.
 - subclasses use all the behaviour of their superclass: if a subclass
 doesn't use all of its superclass's behaviour, is it really an
 instance of the superclass?
+
+    what does it mean to compose a behaviour into a class that needs
+    it?
