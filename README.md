@@ -686,3 +686,29 @@ class Dude:
 print(Dude.__mro__)
 
 ```
+
+**Abstract base classes** in Python is a way of using inheritance
+to achieve an interface. It outlines the methods
+and attributes its subclasses must implement.
+
+```python
+
+from abc import ABC, abstractmethod
+
+class Dude(ABC):
+    @abstractmethod
+    def eat(self, prey):
+        pass
+
+class Man(Dude):
+    def eat(self, prey):
+        pass
+    def roar(self):
+        return "Dude()"
+
+print(Man().roar())
+
+```
+
+    stay away from putting additional methods to model behaviours in
+    an abstract base class.
