@@ -670,3 +670,19 @@ Python provides the following tools to check the "situation" of an object.
 - `isinstance()`
 - `issubclass()`
 - `super()`: check **teller.py()**
+
+During multiple inheritance, `super()` uses **method resolution order** to
+determine the list of classes Python will search, in order. These are the steps:
+- depth-frist ordering of the superclass
+- removal of duplicates
+- move each class to appear after its subclasses.
+
+To check the method resolution order for any class, do:
+```python
+
+class Dude:
+    pass
+
+print(Dude.__mro__)
+
+```
