@@ -17,13 +17,14 @@ class RPS:
     def decider(self, lose, win):
         if self.computer_choice == lose:
             print(f'Sorry, {self.computer_choice} beat {self.human_choice}')
-        elif self.human_choice == win:
+        else:  # self.human_choice == win:
             print(f'Yes, {self.human_choice} beat {self.computer_choice}')
 
     def print_winner(self):
         # Take care of the draw condition
         if self.human_choice == self.computer_choice:
             print("Draw")
+            return
 
         # Take care of win or lose
         if self.human_choice == 'paper':
