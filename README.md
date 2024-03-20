@@ -712,3 +712,75 @@ print(Man().roar())
 
     stay away from putting additional methods to model behaviours in
     an abstract base class.
+
+
+CHAPTER NINE
+------------
+
+    KEEPING THINGS LIGHTWEIGHT
+
+
+"Remain vigilant about seperating concerns but generally
+wait unit a sensible organization presents itself
+in order to avoid creating the wrong abstraction".
+Remember:
+    "Duplication is better than the wrong abstraction"
+
+How big should class/function/module be?
+----------------------------------------
+
+Since there is no straight answer, these are some of the
+metrics the developer should use:
+
+- Physical size: Don't set specific limits like "Functions should be
+                 'x' lines long" rather it should be easy to make a
+                 mental model of the logic defined.
+
+- Single responsibility: It is generally a good idea for
+                         seperating concern tools e.g functions, classes etc.
+                         to do a unit of work depending on the tool.
+
+- Code complexity: This is a quantitative measure of the characteristics of code,
+                   not just a subjective measure of how confusing it is to read.
+                   Having tools to help measure code's complexity can help deduce code
+                   that might be hard to understand.
+
+Measuring code complexity
+-------------------------
+
+Cyclomatic complexity, M, is the measure of the execution paths through
+a function or method. For a function, it is equal to the number of edges
+minus the number of nodes, plus two.
+    E is determined by the number of different execution paths the code can take
+    N is determined by:
+        - "start" of the function
+        - conditionals
+        - loops
+        - end of a loop
+        - return statement
+     .
+    . . M = E - N + 2
+
+```python3
+
+def has_long_words(sentence):
+    if isinstance(sentence, str):
+        words = sentence.split(' ')
+    for word in words:
+        if len(word) > 10:
+            return True
+    return False
+
+```
+
+The function above has 8 nodes, 10 edges. M = 4, which is a good score.
+Ideally, the complexity score for a given function or method should be
+below 10.
+
+Untested branches of execution are ususally referred to as "edge cases" which
+usually means "a thing we didn't think of"
+
+HALSTEAD COMPLEXITY attempts to measure quantitatively the ideas of
+level of abstraction. It involves inspecting a program's use of the language
+built-in operators, number of variables and expressions etc.
+    Radon is used in measuring quantitative complexity in  Python programs.
