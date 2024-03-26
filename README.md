@@ -784,3 +784,98 @@ HALSTEAD COMPLEXITY attempts to measure quantitatively the ideas of
 level of abstraction. It involves inspecting a program's use of the language
 built-in operators, number of variables and expressions etc.
     Radon is used in measuring quantitative complexity in  Python programs.
+
+
+Breaking down complex code
+--------------------------
+
+```python3
+import json
+import random
+
+FOODS = ['pizza', 'burgers', 'salad', 'soup']
+
+def random_food(request):
+    food = random.choice(FOODS)
+    if request.headers.get('Accept') == 'application/json':
+        return json.dumps({'food': food})
+    elif request.headers.get('Accept') == 'application/xml':
+        return f'<response><food>{food}</food></response>'
+    else:
+        return food
+```
+
+Using the Python code above, reduce the complexity as much as possible:
+
+- Extracting configurations
+
+```python3
+import json
+import random
+
+FOODS = ['pizza', 'burgers', 'salad', 'soup']
+
+def random_food(request):
+    food = random.choice(FOODS)
+    request_response = {
+        'application/json': json.dumps({'food': food}),
+        'application/xml': f'<response><food>{food}</food></response>',
+    }
+    return request_response.get(request.headers.get('Accept'), food)
+```
+
+- Extracting functions
+
+```python3
+import json
+import random
+
+FOODS = ['pizza', 'burgers', 'salad', 'soup']
+
+def to_json(food):
+    return json.dumps({'food': food})
+
+def to_xml(food):
+    return f"<response><food>{food}</food></response>"
+
+def random_food(request):
+    food = random.choice(FOODS)
+    request_response = {
+        'application/json': to_json,
+        'application/xml': to_xml,
+    }
+    format_func = request_response.get(
+        request.headers.get('Accept'),
+        lambda x: x
+    )
+    return format_func(food)
+```
+
+- Fully seperating concerns
+
+```python3
+import json
+import random
+
+FOODS = ['pizza', 'burgers', 'salad', 'soup']
+
+def to_json(food):
+    return json.dumps({'food': food})
+
+def to_xml(food):
+    return f"<response><food>{food}</food></response>"
+
+def get_format_func(header_type):
+    request_response = {
+        'application/json': to_json,
+        'application/xml': to_xml,
+    }
+    return request_response.get(
+        header_type,
+        lambda x: x
+    )
+
+def random_food(request):
+    food = random.choice(FOODS)
+    return get_format_func(request.headers.get('Accept'))(food)
+```
