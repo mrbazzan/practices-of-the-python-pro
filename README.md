@@ -879,3 +879,34 @@ def random_food(request):
     food = random.choice(FOODS)
     return get_format_func(request.headers.get('Accept'))(food)
 ```
+
+Breaking down classes
+---------------------
+
+- Initialization complexity
+
+    NB: Getters and setters are discouraged in Python
+        looking at rockcrusher :(
+
+        Simplify initialization method
+        looking at template_engine :(
+
+        In using @property decorator, although methods are treated
+        like properties, repeatedly accessing them means that methods
+        are called each time. This can expecially have performance
+        impacts for methods that are expensive to calculate.
+
+- Extracting classes and forwarding calls
+
+The idea of calling extracted functions from their original location
+is very important in designing backward compatible software
+(check examples, "Extracting functions" and "Fully seperated concerns"
+above)
+
+    Backward compatibility is the practice of evolving your software
+    without breaking the implementation consumers previously relied on.
+
+An example of this is in "mail forwarding", "WhatsApp change number"
+etc.
+
+check **book.py**
