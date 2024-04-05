@@ -910,3 +910,47 @@ An example of this is in "mail forwarding", "WhatsApp change number"
 etc.
 
 check **book.py**
+
+
+CHAPTER TEN
+-----------
+
+    ACHIEVING LOOSE COUPLING
+
+
+Coupling is a measure of the interconnectedness of distinct
+pieces of software.
+
+Coupling can effectively be identified by assessing the likelihood
+that changes to a module will require a change to the code that
+uses it.
+
+Symptoms of tight coupling
+--------------------------
+
+- A class that stores another object as attribute.
+
+    what about a class whose method defines a variable
+    that is another object?
+
+- A class whose methods call functions from another module
+
+Symptoms of loose coupling
+--------------------------
+
+Loose coupling is the interaction between codes without heavy reliance
+on the details of eachother.
+
+NB: Think of intercommunication between codes in terms of the messages
+that objects send to each other rather than foucsing on the objects
+themselves.
+
+Recognizing coupling
+--------------------
+
+- Feature envy
+- Shotgun surgery
+
+    "a place for everything, and everything in its place"
+
+- Leaky abstractions
