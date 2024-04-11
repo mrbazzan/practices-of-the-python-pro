@@ -954,3 +954,7 @@ Recognizing coupling
     "a place for everything, and everything in its place"
 
 - Leaky abstractions
+
+NB: Addressing new requirements often exposes tightly coupled
+    areas of code.
+
